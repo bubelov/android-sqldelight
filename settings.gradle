@@ -1,0 +1,2 @@
+rootProject.name='sqldelight'
+include ':app'

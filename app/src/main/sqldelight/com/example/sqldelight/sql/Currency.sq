@@ -1,0 +1,40 @@
+CREATE TABLE Currency (
+    id TEXT PRIMARY KEY,
+    name TEXT NOT NULL,
+    code TEXT NOT NULL,
+    crypto INTEGER as Boolean NOT NULL,
+    createdAt TEXT NOT NULL,
+    updatedAt TEXT NOT NULL
+);
+
+insertOrReplace:
+INSERT OR REPLACE
+INTO Currency
+VALUES ?;
+
+selectAll:
+SELECT *
+FROM Currency;
+
+select:
+SELECT *
+FROM Currency
+WHERE id = ?;
+
+selectCount:
+SELECT COUNT(*)
+FROM Currency;
+
+selectMaxUpdatedAt:
+SELECT MAX(updatedAt)
+FROM Currency;
+
+updateName:
+UPDATE Currency
+SET name = ?
+WHERE id = ?;
+
+delete:
+DELETE
+FROM Currency
+WHERE id = ?;
