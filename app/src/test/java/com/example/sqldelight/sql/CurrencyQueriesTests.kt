@@ -12,7 +12,7 @@ import kotlin.random.Random
 
 class CurrencyQueriesTests {
 
-    lateinit var queries: CurrencyQueries
+    private lateinit var queries: CurrencyQueries
 
     @Before
     fun setUp() {
@@ -52,7 +52,7 @@ class CurrencyQueriesTests {
     @Test
     @ExperimentalStdlibApi
     fun select_selectsCorrectItem() = queries.transaction {
-        buildList<Currency> {
+        buildList {
             repeat(100) { add(currency()) }
         }.apply {
             forEach { queries.insertOrReplace(it) }
@@ -102,7 +102,7 @@ class CurrencyQueriesTests {
         }
     }
 
-    private fun currency() = Currency.Impl(
+    private fun currency() = Currency(
         id = UUID.randomUUID().toString(),
         name = "Testcoin",
         code = "TST",
